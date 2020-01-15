@@ -12,6 +12,7 @@ numpy = "*"
 matplotlib = "*"
 requests = "*"
 citipy = "*"
+pexpect = "*"
 
 [requires]
 python_version = "3.7"
