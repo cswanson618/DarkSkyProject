@@ -9,7 +9,7 @@ The goal of Project Dark Sky is to discover the darkest sky among the US Nationa
 ### Background
 **Light pollution** is the result of misdirected artificial light. It is responsible for adverse health effects, wasted energy consumption and disrupting ecosystems. Light pollution reduces the **Limiting Magnitude** or the ability of the naked eye to detect faint stars. Simply put, the higher the Limiting Magnitude, the better the stargazing. 83% of the word's population lives under light-polluted skies.<sup>2</sup> 
 
-**Pollutants** include fine particles, black carbon and ground level ozone. These combinations compose **air pollution** resulting in scattered light and in humid conditions a haze emerges. Haze is responsible for reduced visibility.<sup>4</sup> 89% of National Parks suffer from haze pollution.<sup>7</sup> While colorless, an increase in ground level ozone suggests that pollution is the cause for reduced visibility as it facilitates chemical reactions that produce haze forming particles.<sup>4</sup> **Air Quality Index** is an indication for how clean or polluted your air is, and what associated health effects might be a concern for you.[Ratings for ground level ozone established by EPA](images/aqi.png)
+**Pollutants** include fine particles, black carbon and ground level ozone. These combinations compose **air pollution** resulting in scattered light and in humid conditions a haze emerges. Haze is responsible for reduced visibility.<sup>4</sup> 89% of National Parks suffer from haze pollution.<sup>7</sup> While colorless, an increase in ground level ozone suggests that pollution is the cause for reduced visibility as it facilitates chemical reactions that produce haze forming particles.<sup>9</sup> **Air Quality Index** is an indication for how clean or polluted your air is, and what associated health effects might be a concern for you.[Ratings for ground level ozone established by EPA](images/aqi.png)
 
 **Cloud cover** or cloudiness is the amount of sky that is covered by cloud expressed as a percentage. The cloud coverage is for all altitudes. Due to the reflective nature, clouds amplify the effect of light pollution.<sup>5</sup>
 
@@ -21,6 +21,8 @@ The effects of light pollution have been described at length, the following sour
 3. [The Scientist - The Vanishing Night: Light Pollution Threatens Ecosystems](https://www.the-scientist.com/features/the-vanishing-night--light-pollution-threatens-ecosystems-64803)
 
 ## Strategy
+
+**The following packages were used in this project:** jupyter, json, requests, citipy, matplotlib, pandas, numpy, sqlalchemy, pymysql.
 
 **Coordinates for US National Parks**\
 First, we obtained GPS coordinates for all of the US National Parks with [Google Places Search API](https://developers.google.com/places/web-service/search).
@@ -38,7 +40,7 @@ The [US Environmental Protection Agency](https://aqs.epa.gov/aqsweb/documents/da
 We downloaded the annual summary air quality dataset for 2015, 2016, 2017, 2018, and 2019. Note that, at first, we tried to get raw data by making API calls but that did not work in the end because number of calls exceeded the daily limit). Some National Parks have neither in-park monitoring nor nearby representative sites and were excluded as a result.
 
 **Cloud Cover**\
-[Visual Crossing Weather](https://rapidapi.com/awigmore/api/visual-crossing-weather) through Rapid API offers daily historical weather by coordinates or City, State. Query by coordinates returned incomplete for the desired date range, however query by City, State provided complete results for the years 2015-2019. To determine the nearest city with the park coordinate, [CityPy](https://pypi.org/project/citipy/) was implemented. The corresponding City, State was then used to query Visual Crossing Weather. If a match is not found, Visual Crossing Weather searches a default radius up to 50,000 meters (equivalent to 30miles) within the specified location. The output data is a comma separated table format. The API has a rate-limit in effect, upon execution of the for loop, approximately 40 locations were returned. A second request must be carried out to complete the remaining list of City, State corresponding to parks. 
+[Visual Crossing Weather](https://rapidapi.com/awigmore/api/visual-crossing-weather) through Rapid API offers daily historical weather by coordinates or City, State. Query by coordinates returned incomplete for the desired date range, however query by City, State provided complete results for the years 2015-2019. To determine the nearest city with the park coordinate, [CityPy](https://pypi.org/project/citipy/) was implemented. The corresponding City, State was then used to query Visual Crossing Weather. If a match is not found, Visual Crossing Weather searches a default radius up to 50,000 meters (equivalent to 30 miles) within the specified location. The output data is a comma separated table format. The API has a rate-limit in effect, upon execution of the for loop, approximately 40 locations were returned. A second request must be carried out to complete the remaining list of City, State corresponding to parks. 
 
 Notes: Two National Parks had no reported weather data and were excluded as a result. The entire radius difference is unknown with the use of CityPy. However, to complete the final merge of cloud cover and ground level ozone, coordinates within 30 miles of the national park coordinates were applied.
 
@@ -48,14 +50,21 @@ Data was cleaned to attain consist coordinates across the dates, limiting magnit
 ## Analysis
 Charting Limiting Magnitude was accomplished with a for loop over each park by year using the pivot table. The available data on Limiting Magnitude in US National Parks posed a difficult challenge due to wide ranges in the number of reported measurements per park. These plots assisted in visualizing how irreconcilable the data was (too few measurements for many parks to use; no discernible trends). **Ultimately, we determined the limiting magnitude data to be inconclusive.** For reference, plots are available in [supplemental_figures](https://github.com/cswanson618/DarkSkyProject/tree/master/supplemental_figures). 
 
-**Next, we focused on identifying any trends between ground level ozone and cloud cover for each park.**
+**Next, we focused on identifying any trends between ground level ozone and cloud cover for all parks.**
 
-For the years 2015-2019, Mean Ground Level Ozone and Mean Cloud Cover vs. Time (Years) were charted for each park.
+For the years 2015-2019, Mean Ground Level Ozone and Mean Cloud Cover vs. Time (Years) were charted for all parks
 
-[INSERT REPRESENTATIVE PLOTS HERE]
+![Cloud_Cover_v_Ozone_in_NP_2015](figures/Cloud_Cover_v_Ozone_in_NP_2015.png)
 
+![Cloud_Cover_v_Ozone_in_NP_2016](figures/Cloud_Cover_v_Ozone_in_NP_2016.png)
 
-**The following packages were used in this project:** citipy, matplotlib, pandas, numpy, sqlalchemy.
+![Cloud_Cover_v_Ozone_in_NP_2017](figures/Cloud_Cover_v_Ozone_in_NP_2017.png)
+
+![Cloud_Cover_v_Ozone_in_NP_2018](figures/Cloud_Cover_v_Ozone_in_NP_2018.png)
+
+![Cloud_Cover_v_Ozone_in_NP_2019](figures/Cloud_Cover_v_Ozone_in_NP_2019.png)
+
+**In conclusion, we were unable to identify trends between Cloud cover and ground level ozone between the years of 2015-2019.**
 
 ## Conservation Measures
 The International Dark Sky Places (IDSP) Program was founded to encourage communities, parks and protected areas around the world to preserve and protect dark sites through responsible lighting polices and public education.
