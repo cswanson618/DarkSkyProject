@@ -9,16 +9,16 @@ The goal of Project Dark Sky is to discover the darkest sky among the US Nationa
 ### Background
 **Light pollution** is the result of misdirected artificial light. It is responsible for adverse health effects, wasted energy consumption and disrupting ecosystems. Light pollution reduces the **Limiting Magnitude** or the ability of the naked eye to detect faint stars. Simply put, the higher the Limiting Magnitude, the better the stargazing. 83% of the word's population lives under light-polluted skies.<sup>2</sup> 
 
-**Pollutants** include fine particles, black carbon and ground level ozone. These combinations compose **air pollution** resulting in scattered light and in humid conditions a haze emerges. Haze is responsible for reduced visibility.<sup>4</sup> 89% of National Parks suffer from haze pollution.<sup>7</sup> While colorless, an increase in ground level ozone suggests that pollution is the cause for reduced visibility as it facilitates chemical reactions that produce haze forming particles.<sup>4</sup> [Ratings for ground level ozone](images/aqi.png)
+**Pollutants** include fine particles, black carbon and ground level ozone. These combinations compose **air pollution** resulting in scattered light and in humid conditions a haze emerges. Haze is responsible for reduced visibility.<sup>4</sup> 89% of National Parks suffer from haze pollution.<sup>7</sup> While colorless, an increase in ground level ozone suggests that pollution is the cause for reduced visibility as it facilitates chemical reactions that produce haze forming particles.<sup>4</sup> **Air Quality Index** is an indication for how clean or polluted your air is, and what associated health effects might be a concern for you.[Ratings for ground level ozone established by EPA](images/aqi.png)
 
 **Cloud cover** or cloudiness is the amount of sky that is covered by cloud expressed as a percentage. The cloud coverage is for all altitudes. Due to the reflective nature, clouds amplify the effect of light pollution.<sup>5</sup>
 
 ### Impact of Light Pollution
 The effects of light pollution have been described at length, the following sources are recommended for further reading: 
 
-1. [Saving the Dark - What is Light Pollution](http://savingthedark.com/light-pollution-1)\
-2. [National Geographic - Our nights are getting brighter, and Earth is paying the price](https://www.nationalgeographic.com/science/2019/04/nights-are-getting-brighter-earth-paying-the-price-light-pollution-dark-skies/)\
-3. [The Scientist - The Vanishing Night: Light Pollution Threatens Ecosystems](https://www.the-scientist.com/features/the-vanishing-night--light-pollution-threatens-ecosystems-64803)\
+1. [Saving the Dark - What is Light Pollution](http://savingthedark.com/light-pollution-1)
+2. [National Geographic - Our nights are getting brighter, and Earth is paying the price](https://www.nationalgeographic.com/science/2019/04/nights-are-getting-brighter-earth-paying-the-price-light-pollution-dark-skies/)
+3. [The Scientist - The Vanishing Night: Light Pollution Threatens Ecosystems](https://www.the-scientist.com/features/the-vanishing-night--light-pollution-threatens-ecosystems-64803)
 
 ## Strategy
 
@@ -33,9 +33,9 @@ First, we obtained GPS coordinates for all of the US National Parks with [Google
 Notes: Some parks have no user-reported data available and were excluded as a result.
 
 **Air Quality Index - Ground Level Ozone**\
-[Environmental Protection Agency](https://aqs.epa.gov/aqsweb/documents/data_api.html#annual) has monitoring centers located inside National Parks in addition to representative sites. The query provides data on daily ground level ozone by each year. The Annual Summary Data By Box permits query by park coordindates with a range of 30 miles or +/-0.44 degrees of latitude and longtitude. 
+The [US Environmental Protection Agency](https://aqs.epa.gov/aqsweb/documents/data_api.html#annual) has monitoring centers located inside National Parks in addition to representative sites. The query provides data on daily ground level ozone by each year. The Annual Summary Data By Box permits query by park coordinates with a range of 30 miles or +/-0.44 degrees of latitude and longtitude. 
 
-We downloaded the annual summary air quality dataset for 2015, 2016, 2017, 2018, and 2019. Note that, at first, we tried to get raw data by making API calls but that did not work in the end because number of calls exceeded the daily limit). Some National Parks have neither in-park monitoring or nearby representative sites and were excluded as a result.
+We downloaded the annual summary air quality dataset for 2015, 2016, 2017, 2018, and 2019. Note that, at first, we tried to get raw data by making API calls but that did not work in the end because number of calls exceeded the daily limit). Some National Parks have neither in-park monitoring nor nearby representative sites and were excluded as a result.
 
 **Cloud Cover**\
 [Visual Crossing Weather](https://rapidapi.com/awigmore/api/visual-crossing-weather) through Rapid API offers daily historical weather by coordinates or City, State. Query by coordinates returned incomplete for the desired date range, however query by City, State provided complete results for the years 2015-2019. To determine the nearest city with the park coordinate, [CityPy](https://pypi.org/project/citipy/) was implemented. The corresponding City, State was then used to query Visual Crossing Weather. If a match is not found, Visual Crossing Weather searches a default radius up to 50,000 meters (equivalent to 30miles) within the specified location. The output data is a comma separated table format. The API has a rate-limit in effect, upon execution of the for loop, approximately 40 locations were returned. A second request must be carried out to complete the remaining list of City, State corresponding to parks. 
@@ -67,9 +67,9 @@ The National Parks Conservation Association (NPCA) is an independent, nonpartisa
 The rise of astrotourism boasts economical incentives for communities with the Dark Sky designation. As public awareness and interest grows, the benefits of responsible astrotourism have a demonstrable impact to reducing the carbon footprint, increasing the health of the ecosystem and environment for future generations to cherish.<sup>8</sup>
 
 ### Additional References:
-4. [National Park Service Air Pollution & Visibility](https://www.nps.gov/subjects/air/visibility.htm)\
-5. [Christopher C. M. Kyba, Thomas Ruhtz, Jürgen Fischer, Franz Hölker PLoS One. 2011; 6(3): e17307 Cloud Coverage Acts as an Amplifier for Ecological Light Pollution in Urban Ecosystems](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3047560/)\
-6. [darksky.org](https://www.darksky.org/)\
-7. [National Parks Conservation Association](https://www.npca.org/reports/air-climate-report)\
-8. [Laeticia Jacobs, Elizabeth A. Du Preez & Felicité Fairer-Wessels (2019) To wish upon a star: Exploring Astro Tourism as vehicle for sustainable rural development, Development Southern Africa, DOI: 10.1080/0376835X.2019.1609908](https://doi.org/10.1080/0376835X.2019.1609908)\
+4. [National Park Service Air Pollution & Visibility](https://www.nps.gov/subjects/air/visibility.htm)
+5. [Christopher C. M. Kyba, Thomas Ruhtz, Jürgen Fischer, Franz Hölker PLoS One. 2011; 6(3): e17307 Cloud Coverage Acts as an Amplifier for Ecological Light Pollution in Urban Ecosystems](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3047560/)
+6. [darksky.org](https://www.darksky.org/)
+7. [National Parks Conservation Association](https://www.npca.org/reports/air-climate-report)
+8. [Laeticia Jacobs, Elizabeth A. Du Preez & Felicité Fairer-Wessels (2019) To wish upon a star: Exploring Astro Tourism as vehicle for sustainable rural development, Development Southern Africa, DOI: 10.1080/0376835X.2019.1609908](https://doi.org/10.1080/0376835X.2019.1609908)
 9. [US Forest Service](https://www.fsvisimages.com/visdata.aspx)
