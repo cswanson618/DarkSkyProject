@@ -64,7 +64,11 @@ For the years 2015-2019, Mean Ground Level Ozone and Mean Cloud Cover vs. Time (
 
 ![Cloud_Cover_v_Ozone_in_NP_2019](figures/Cloud_Cover_v_Ozone_in_NP_2019.png)
 
-**In conclusion, we were unable to identify trends between Cloud cover and ground level ozone between the years of 2015-2019.**
+**We were unable to identify trends between Cloud cover and ground level ozone between the years of 2015-2019.**
+
+**Previously discussed, elevated reports of ground level ozone can contribute to reduced visibility.<sup>9</sup> We compared Visibility (m) to Ozone (ppm) and were unable to conclude any trends. Additional plots on visibility, ozone and cloudiness are available in [figures](https://github.com/cswanson618/DarkSkyProject/tree/master/figures).**
+
+![ozone_vs_visibility](figures/ozone_vs_visibility.png)
 
 ## Conservation Measures
 The International Dark Sky Places (IDSP) Program was founded to encourage communities, parks and protected areas around the world to preserve and protect dark sites through responsible lighting polices and public education.
