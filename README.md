@@ -1,5 +1,5 @@
 # Project Dark Sky
-![dark_sky](images/dark_sky.jpg)
+![dark_sky](figures/dark_sky.jpg)
 Image Source: [darksky.org](https://www.darksky.org/bryce-canyon-national-park-certified-as-an-international-dark-sky-park/) 
 Photo Credit: Keith Moore
 
@@ -9,7 +9,7 @@ The goal of Project Dark Sky is to discover the darkest sky among the US Nationa
 ### Background
 **Light pollution** is the result of misdirected artificial light. It is responsible for adverse health effects, wasted energy consumption and disrupting ecosystems. Light pollution reduces the **Limiting Magnitude** or the ability of the naked eye to detect faint stars. Simply put, the higher the Limiting Magnitude, the better the stargazing. 83% of the word's population lives under light-polluted skies.<sup>2</sup> 
 
-**Pollutants** include fine particles, black carbon and ground level ozone. These combinations compose **air pollution** resulting in scattered light and in humid conditions a haze emerges. Haze is responsible for reduced visibility.<sup>4</sup> 89% of National Parks suffer from haze pollution.<sup>7</sup> While colorless, an increase in ground level ozone suggests that pollution is the cause for reduced visibility as it facilitates chemical reactions that produce haze forming particles.<sup>9</sup> **Air Quality Index** is an indication for how clean or polluted your air is, and what associated health effects might be a concern for you.[Ratings for ground level ozone established by EPA](images/aqi.png)
+**Pollutants** include fine particles, black carbon and ground level ozone. These combinations compose **air pollution** resulting in scattered light and in humid conditions a haze emerges. Haze is responsible for reduced visibility.<sup>4</sup> 89% of National Parks suffer from haze pollution.<sup>7</sup> While colorless, an increase in ground level ozone suggests that pollution is the cause for reduced visibility as it facilitates chemical reactions that produce haze forming particles.<sup>9</sup> **Air Quality Index** is an indication for how clean or polluted your air is, and what associated health effects might be a concern for you. [Ratings for ground level ozone established by EPA](figures/aqi.png)
 
 **Cloud cover** or cloudiness is the amount of sky that is covered by cloud expressed as a percentage. The cloud coverage is for all altitudes. Due to the reflective nature, clouds amplify the effect of light pollution.<sup>5</sup>
 
